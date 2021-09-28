@@ -123,9 +123,107 @@ header {
 
 .poke-sprite {
   width: 250px;
+  margin: 30px 0;
 }
 
 .poke-types {
   display: flex;
   justify-content: space-evenly;
 }
+
+.type {
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.type.bug {
+  background-color: var(--bug-verde);
+  color: white;
+}
+
+.type.dark {
+  background-color: var(--dark-cinza);
+  color: white;
+}
+
+.type.dragon {
+  background-color: var(--dragon-laranja);
+  color: white;
+}
+
+.type.electric {
+  background-color: var(--electric-amarelo);
+  color: white;
+}
+
+.type.fairy {
+  background-color: var(--fairy-rosa);
+  color: white;
+}
+
+.type.fighting {
+  background-color: var(--fighting-laranja);
+  color: white;
+}
+
+.type.fire {
+  background-color: var(--fire-laranja-escuro);
+  color: white;
+}
+
+.type.flying {
+  background-color: var(--flying-azul);
+  color: white;
+}
+
+.type.ghost {
+  background-color: var(--ghost-roxo);
+  color: white;
+}
+
+.type.grass {
+  background-color: var(--grass-verde);
+  color: white;
+}
+
+.type.ground {
+  background-color: var(--ground-amarelo);
+  color: white;
+}
+
+.type.ice {
+  background-color: var(--ice-azul);
+  color: white;
+}
+
+.type.normal {
+  background-color: var(--normal-cinza);
+  color: white;
+}
+
+.type.poison {
+  background-color: var(--poison-roxo);
+  color: white;
+}
+
+.type.psychic {
+  background-color: var(--psychic-rosa);
+  color: white;
+}
+
+.type.rock {
+  background-color: var(--rock-ocre);
+  color: white;
+}
+
+.type.steel {
+  background-color: var(--steel-prata);
+  color: white;
+}
+
+.type.water {
+  background-color: var(--water-azul);
+  color: white;
+}
+

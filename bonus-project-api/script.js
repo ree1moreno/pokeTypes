@@ -31,7 +31,7 @@ async function getPokemonByName(pokeName) {
       return { name, types, sprites }
     })
 }
-console.log((await getPokemonByName('charizard')));
+console.log((await getPokemonByName('landorus-incarnate')));
 
 function appendPokemon (pokemon) {
   const pokeContent = document.createElement('section');
@@ -39,16 +39,19 @@ function appendPokemon (pokemon) {
   const pokeImage = document.createElement('img');
   const pokeTypes = document.createElement('div');
 
-  pokeImage.src = pokemon.sprites.front_default;
+  pokeImage.src = `${(pokemon.sprites.other.dream_world.front_default) ? 
+    pokemon.sprites.other.dream_world.front_default : 
+    pokemon.sprites.other['official-artwork'].front_default}`;
   pokeImage.className = 'poke-sprite';
-  pokeName.innerText = `Você escolheu o ${pokemon.name}`;
+  pokeName.innerText = `Você escolheu o ${pokemon.name}! `;
   pokeName.className = 'poke-name';
   pokeContent.className = 'poke-section';
   pokeTypes.className = 'poke-types'; 
 
   pokemon.types.forEach((element) => {
     const span = document.createElement('span');
-    span.className = `${element.type.name}`
+    span.classList.add(`${element.type.name}`);
+    span.classList.add('type');
     span.innerHTML = `${element.type.name}`
     pokeTypes.appendChild(span);
   })
@@ -65,5 +68,5 @@ function appendPokemon (pokemon) {
 const getButton = document.querySelector('#find-pokemon');
 
 getButton.addEventListener('click', async () => {
-  appendPokemon(await getPokemonByName('charizard'));
+  appendPokemon(await getPokemonByName('landorus-incarnate'));
 })
