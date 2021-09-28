@@ -11,7 +11,6 @@ const fetchPokemon = (name) => {
     .then((response) => response.json())
     .then((data) => data.pokemon)
 }
-
 const getPokemonByType = async (type) => {
     const pokemonByType = fetchPokemon(type)
     .then((data) => data.map((e) => {
