@@ -105,7 +105,13 @@ header {
   padding: 15px;
 }
 
+.fight-info div {
+  display: flex;
+  flex-direction: column;
+}
+
 .advantage , .disadvantage {
+  display: flex;
   text-align: center;
   font-family: cursive;
 }
