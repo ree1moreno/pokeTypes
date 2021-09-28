@@ -1,3 +1,5 @@
+const getButtonByType = document.getElementById('get-by-types');
+
 const getRandomNumber = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -15,13 +17,34 @@ const eventListenerTypeButtons = () => {
     
     arrayButton.forEach((button) => {
         button.addEventListener('click', async (event) => {
-            const getID = event.target.id;
-            const pokemons = await getPokemonByType(getID);
-            const pokemon =  pokemons[getRandomNumber(0, pokemons.length)]
-            appendPokemon(await getPokemonByName(pokemon));
+            event.target.classList.toggle('selected');
+            const selectedClass = document.getElementsByClassName('selected');
+
+            if(selectedClass.length > 2) {
+                const arraySelected = Array.from(selectedClass);
+                arraySelected.forEach((e) => {
+                    e.classList.remove('selected');
+                })
+            }
         })
     })
 }
+
+function filterPokemons() {
+    getButtonByType.addEventListener('click', async () => {
+        const selectedClass = document.getElementsByClassName('selected');
+        const arrFromSelected = Array.from(selectedClass);
+
+        const getID = arrFromSelected.map((e) => {
+            return e.id;
+        })
+        
+        const pokemons = await getPokemonByTypes(...getID);
+        const pokemon =  pokemons[getRandomNumber(0, pokemons.length)]
+        appendPokemon(await getPokemonByName(pokemon));
+    })
+}
+filterPokemons();
 
 eventListenerTypeButtons();
 
@@ -45,13 +68,15 @@ const getPokemonByType = async (type) => {
 }
 
 async function getPokemonByTypes (type1, type2) {
-  const firstType = await getPokemonByType(type1);
-  const secondType = await getPokemonByType(type2);
-  return firstType.filter((pokeA) => {
+    const firstType = await getPokemonByType(type1);
+    if(!type2) {
+        return firstType;
+    }
+    const secondType = await getPokemonByType(type2);
+    return firstType.filter((pokeA) => {
     return secondType.find((pokeB) => pokeA === pokeB);
   })
 }
-// console.log(await getPokemonByTypes('ground', 'fire'));
 
 async function getPokemonByName(pokeName) {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}/`)
