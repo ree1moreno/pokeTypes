@@ -1,0 +1,116 @@
+:root {
+  --branco: rgb(255, 255, 255);
+  --amarelo: rgb(230, 188, 47);
+  --amarelo2: rgb(255, 204, 0);
+  --amarelo3: rgb(213, 161, 0);
+  --vermelho: rgb(255, 31, 31);
+  --azul-claro: rgb(93, 185, 255);
+  --azul-claro2: rgb(0, 117, 190);
+  --azul-escuro: rgb(54, 59, 129);
+  --azul-escuro2: rgb(10, 40, 95);
+  --cinza-claro: rgb(164, 164, 164);
+  --cinza-escuro: rgb(49, 49, 49);
+  --laranja-escuro: rgb(227, 53, 13);
+  --laranja-claro: rgb(238, 107, 47);
+  --verde: rgb(77, 173, 91);
+  --azul: rgb(48, 167, 215);
+
+    /* Cores dos tipos: */
+  --bug-verde: rgb(114, 159, 63);
+  --dark-cinza: rgb(112, 112, 112);
+  --dragon-laranja: rgb(241, 110, 87);
+  --electric-amarelo: rgb(238, 213, 53);
+  --fairy-rosa: rgb(253, 185, 233);
+  --fighting-laranja: rgb(213, 103, 35);
+  --fire-laranja-escuro: rgb(253, 125, 36);
+  --flying-azul: rgb(61, 199, 239);
+  --ghost-roxo: rgb(123, 98, 163);
+  --grass-verde: rgb(155, 204, 80);
+  --ground-amarelo: rgb(247, 222, 63);
+  --ice-azul: rgb(81, 196, 231);
+  --normal-cinza: rgb(164, 172, 175);
+  --poison-roxo: rgb(185, 127, 201);
+  --psychic-rosa: rgb(243, 102, 185);
+  --rock-ocre: rgb(163, 140, 33);
+  --steel-prata: rgb(158, 183, 184);
+  --water-azul: rgb(69, 146, 196);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  font-family: 'Rampart One', cursive;
+}
+
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.header-title h1 {
+  font-size: 4em;
+  margin-left: 30px;
+}
+
+.description {
+  background-color: var(--azul-escuro2);
+  padding: 30px;
+}
+
+.description p {
+  font-family: cursive;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--amarelo2);
+  text-align: center;
+}
+
+.types-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+}
+
+.types-images img {
+  height: 90px;
+  width: 90px;
+  padding: 10px;
+  cursor: pointer;
+  /* ao passar o mouse aparecer a descrição do tipo */
+}
+
+.choose-text {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.chosen-pokemon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  font-family: cursive;
+}
+
+.fight-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.advantage , .disadvantage {
+  text-align: center;
+  font-family: cursive;
+}
+
+.footer {
+  text-align: center;
+  padding: 15px;
+}
