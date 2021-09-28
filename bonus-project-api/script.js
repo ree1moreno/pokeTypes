@@ -4,6 +4,10 @@ const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min));
 }
 
+function toTitleCase(word) {
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+}
+
 const fetchPokemon = (name) => {
     return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
     .then((response) => response.json())
@@ -38,6 +42,9 @@ async function getPokemonByName(pokeName) {
 console.log((await getPokemonByName('landorus-incarnate')));
 
 function appendPokemon (pokemon) {
+  const getPokeSection = document.querySelector('.chosen-pokemon');
+  getPokeSection.innerHTML = '';
+
   const pokeContent = document.createElement('section');
   const pokeName = document.createElement('h2');
   const pokeImage = document.createElement('img');
@@ -47,7 +54,7 @@ function appendPokemon (pokemon) {
     pokemon.sprites.other.dream_world.front_default : 
     pokemon.sprites.other['official-artwork'].front_default}`;
   pokeImage.className = 'poke-sprite';
-  pokeName.innerText = `Você escolheu o ${pokemon.name}! `;
+  pokeName.innerText = `Você escolheu o ${toTitleCase(pokemon.name)}! `;
   pokeName.className = 'poke-name';
   pokeContent.className = 'poke-section';
   pokeTypes.className = 'poke-types'; 
@@ -56,15 +63,13 @@ function appendPokemon (pokemon) {
     const span = document.createElement('span');
     span.classList.add(`${element.type.name}`);
     span.classList.add('type');
-    span.innerHTML = `${element.type.name}`
+    span.innerHTML = `${toTitleCase(element.type.name)}`
     pokeTypes.appendChild(span);
   })
   
   pokeContent.appendChild(pokeName);
   pokeContent.appendChild(pokeImage);
   pokeContent.appendChild(pokeTypes);
-
-  const getPokeSection = document.querySelector('.chosen-pokemon')
   
   getPokeSection.appendChild(pokeContent);
 }
@@ -73,7 +78,5 @@ const getButton = document.querySelector('#find-pokemon');
 const getInput = document.querySelector('#pokemon-text');
 
 getButton.addEventListener('click', async () => {
-
   appendPokemon(await getPokemonByName(`${getInput.value.toLowerCase()}`));
-
 })
