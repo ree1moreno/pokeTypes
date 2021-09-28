@@ -1,5 +1,11 @@
 import fetch from "node-fetch";
 
+const getRandomNumber = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min));
+}
+
 const fetchPokemon = (name) => {
     return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
     .then((response) => response.json())
@@ -12,18 +18,20 @@ const getPokemonByType = async (type) => {
         return e.pokemon.name;
     }));
 
-    // const pokemons = pokemonByType.map((e) => {
-    //     return e.pokemon.name;
-    // })
-
     return pokemonByType;
 }
 
-const fire = await getPokemonByType('bug');
-const grass = await getPokemonByType('flying');
+const fire = await getPokemonByType('ground');
+const water = await getPokemonByType('flying');
 
-const fireGrass = fire.filter((e) => {
-    e === grass.filter((j) => j === e);
+const fireWater = fire.filter((e) => {
+    return water.find((j) => j === e);
 })
 
-console.log(fireGrass);
+const getRandomPokemonByList = (arr) => {
+    const random = getRandomNumber(0, arr.length);
+    return console.log(arr[random]);
+}
+
+console.log(fireWater);
+getRandomPokemonByList(fireWater);
