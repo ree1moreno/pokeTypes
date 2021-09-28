@@ -114,3 +114,18 @@ header {
   text-align: center;
   padding: 15px;
 }
+
+.poke-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.poke-sprite {
+  width: 250px;
+}
+
+.poke-types {
+  display: flex;
+  justify-content: space-evenly;
+}
