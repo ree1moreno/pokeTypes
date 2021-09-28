@@ -70,7 +70,10 @@ function appendPokemon (pokemon) {
 }
 
 const getButton = document.querySelector('#find-pokemon');
+const getInput = document.querySelector('#pokemon-text');
 
 getButton.addEventListener('click', async () => {
-  appendPokemon(await getPokemonByName('landorus-incarnate'));
+
+  appendPokemon(await getPokemonByName(`${getInput.value.toLowerCase()}`));
+
 })
