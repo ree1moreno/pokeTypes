@@ -36,6 +36,9 @@
   --water-azul: rgb(69, 146, 196);
 }
 
+body {
+  background-color: azure;
+}
 * {
   margin: 0;
   padding: 0;
@@ -59,6 +62,7 @@ header {
 }
 
 .description {
+  display: flex;
   background-color: var(--azul-escuro2);
   padding: 30px;
 }
@@ -230,4 +234,3 @@ header {
 .selected {
   border: 1px solid red;
 }
-
