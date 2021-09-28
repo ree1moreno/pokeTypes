@@ -1,4 +1,8 @@
-// import fetch from "node-fetch";
+const getRandomNumber = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min));
+}
 
 const fetchPokemon = (name) => {
     return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
