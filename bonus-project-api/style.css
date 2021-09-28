@@ -226,3 +226,7 @@ header {
   background-color: var(--water-azul);
   color: white;
 }
+
+.selected {
+  border: 1px solid red;
+}
