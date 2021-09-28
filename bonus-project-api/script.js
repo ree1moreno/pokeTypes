@@ -4,11 +4,33 @@ const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min));
 }
 
+const getRandomPokemon = (arr) => {
+    const random = getRandomNumber(0, (arr.lenght-1))
+    return arr[random];
+}
+
+const eventListenerTypeButtons = () => {
+    const buttonType = document.getElementsByClassName('symbol');
+    const arrayButton = Array.from(buttonType);
+    
+    arrayButton.forEach((button) => {
+        button.addEventListener('click', async (event) => {
+            const getID = event.target.id;
+            const pokemons = await getPokemonByType(getID);
+            const pokemon =  pokemons[getRandomNumber(0, pokemons.length)]
+            appendPokemon(await getPokemonByName(pokemon));
+        })
+    })
+}
+
+eventListenerTypeButtons();
+
 const fetchPokemon = (name) => {
     return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
     .then((response) => response.json())
     .then((data) => data.pokemon)
 }
+
 const getPokemonByType = async (type) => {
     const pokemonByType = fetchPokemon(type)
     .then((data) => data.map((e) => {
