@@ -252,7 +252,7 @@ transform: scale(1.7);
 }
 
 .fight-info h3 {
-  font-size: 4em;
+  font-size: 2em;
   color: var(--amarelo);
   text-align: center;
   font-weight: 700;
@@ -268,7 +268,6 @@ transform: scale(1.7);
 .advantage , .disadvantage {
   display: flex;
   font-family: cursive;
-  /* width: 550px; */
 }
 
 .advantage div, .disadvantage div {
