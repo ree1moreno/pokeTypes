@@ -29,7 +29,7 @@
   --ground-amarelo: rgb(247, 222, 63);
   --ice-azul: rgb(81, 196, 231);
   --normal-cinza: rgb(164, 172, 175);
-  --poison-roxo: rgb(185, 127, 201);
+  --poison-roxo: rgb(168, 42, 202);
   --psychic-rosa: rgb(243, 102, 185);
   --rock-ocre: rgb(163, 140, 33);
   --steel-prata: rgb(158, 183, 184);
@@ -37,7 +37,7 @@
 }
 
 body {
-  background-color: var(--steel-prata);
+  background-color: rgba(168, 188, 255, 0.671);
 }
 
 * {
@@ -104,7 +104,7 @@ header img {
   cursor: pointer;
   -webkit-transition: -webkit-transform .2s ease;
   transition: transform .2s ease;
-  opacity: 30%;
+  opacity: 50%;
 }
 
 
