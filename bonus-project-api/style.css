@@ -37,7 +37,7 @@
 }
 
 body {
-  background-color:azure;
+  background-color: var(--steel-prata);
 }
 
 * {
@@ -92,7 +92,7 @@ header img {
 }
 
 .section-types{
-  margin-left: 24px;
+  margin-left: 40px;
   display: flex;
   max-width: 154px;
 }
@@ -178,6 +178,7 @@ button{
 }
 
 .chosen-pokemon{
+  width: 33%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,17 +187,23 @@ button{
 }
 
 .fight-info {
+  width: 33%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 15px;
+  flex-wrap: wrap;
 }
 
-.fight-info div {
+/* .fight-info div {
+  display: flex;
+} */
+
+.div-resistente-contra{
   display: flex;
   flex-direction: column;
 }
 
-.advantage , .disadvantage {
+/* .advantage , .disadvantage {
   display: flex;
   text-align: center;
   font-family: cursive;
@@ -208,7 +215,7 @@ button{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 
 h3 {
   text-align: center;
@@ -224,6 +231,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 }
 
 .poke-sprite {
@@ -234,15 +242,14 @@ h3 {
 .poke-types {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
 }
 
 .type {
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-weight: bold;
-  margin-right: 10px;
-  margin-top: 5px;
+  text-align: center;
+  height: 40px;
+  width: 75px;
 }
 
 .type.bug {
@@ -347,13 +354,23 @@ h3 {
   margin-bottom: 5px;
 }
 
-/* .box-type-images {
-  border: 1px solid red;
+.box-pokemon-images{
+  display: flex;
+  justify-content: space-between;
+}
+
+.div-fraco-contra{
+  justify-content: center;
+}
+
+.box-type-images {
+  width: 33%;
+  /* border: 1px solid red;
   max-width: 25%;
   display: flex;
-  align-items: stretch;
+  align-items: stretch; */
   
-} */
+}
 
 /* .box-type-images section {
   display: flex;
