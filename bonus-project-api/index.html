@@ -24,8 +24,7 @@
 
   <main class="main">
     <section class="description">
-      <p>Descubra qual os pontos fortes e fracos pelo tipo do pokémon escolhido.</p>
-      <button id="get-by-types">Procurar</button>
+      <p>Descubra qual os pontos fortes e fracos pelo tipo do pokémon escolhido</p>
     </section>
     <section>
       <section class="types-images">
@@ -70,9 +69,15 @@
     </section>
 
     <section class="description choose-text">
-      <p>Escolha o seu pokémon</p>
-      <input type="text" id="pokemon-text" placeholder="nome do pokémon">
-      <button id="find-pokemon">Procurar</button>
+      <div>
+        <p>Selecione até dois tipos acima</p>
+        <button id="get-by-types">Procurar!</button>
+      </div>
+      <div>
+        <p>Ou escolha o seu pokémon:</p>
+        <input type="text" id="pokemon-text" placeholder="Nome do pokémon">
+        <button id="find-pokemon">Procurar!</button>
+      </div>
     </section>
 
     <section class="chosen-pokemon">
@@ -81,12 +86,12 @@
 
     <section class="fight-info">
       <div>
-        <h3>Forte Contra:</h3>
+        <h3>Resistente contra: </h3>
         <section class="advantage">
         </section>
       </div>
       <div>
-        <h3>Fraco Contra:</h3>
+        <h3>Fraco contra:</h3>
         <section class="disadvantage">
         </section>
       </div>
