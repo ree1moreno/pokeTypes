@@ -37,7 +37,7 @@
 }
 
 body {
-  background-color: azure;
+  background-color:blanchedalmond;
 }
 * {
   margin: 0;
@@ -66,12 +66,8 @@ header img {
 }
 
 .description {
-<<<<<<< HEAD
   display: flex;
-  background-color: var(--azul-escuro2);
-=======
-  background-color: var(--laranja-claro);
->>>>>>> 1bb8d90f5bfaf7366c176b2ca2d79335d7f8740e
+  background-color: var(--ghost-roxo);
   padding: 30px;
 }
 
@@ -93,8 +89,8 @@ header img {
 }
 
 .types-images img {
-  height: 100px;
-  width: 100px;
+  height: 55px;
+  width: 90px;
   padding: 10px;
   cursor: pointer;
   /* ao passar o mouse aparecer a descrição do tipo */
