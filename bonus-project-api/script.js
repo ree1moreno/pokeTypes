@@ -42,8 +42,8 @@ function filterPokemons() {
         const pokemons = await getPokemonByTypes(...getID);
         const pokemon =  pokemons[getRandomNumber(0, pokemons.length)]
         appendPokemon(await getPokemonByName(pokemon), '.chosen-pokemon');
-        await appendStrongAgainst(...getID);
-        await appendWeakAgainst(...getID);
+        await appendStrongAgainst(getID[0]);
+        await appendWeakAgainst(getID[0]);
     })
 }
 filterPokemons();
@@ -88,7 +88,7 @@ async function getPokemonByName(pokeName) {
       return { name, types, sprites }
     })
 }
-// console.log((await getPokemonByName('landorus-incarnate')));
+console.log((await getPokemonByName('landorus-incarnate')));
 
 function appendPokemon (pokemon, element) {
   const getPokeSection = document.querySelector(element);
@@ -111,13 +111,14 @@ function appendPokemon (pokemon, element) {
   pokeTypes.className = 'poke-types'; 
 
   pokemon.types.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element.type.name}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element.type.name)}`
+    img.classList.add(`${element.type.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.type.name)}`
+    img.src = `images/types/${element.type.name}-text.png`
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeName);
@@ -132,12 +133,8 @@ const getButton = document.querySelector('#find-pokemon');
 const getInput = document.querySelector('#pokemon-text');
 
 getButton.addEventListener('click', async () => {
-  const pokemon = await getPokemonByName(`${getInput.value.toLowerCase()}`)
-  const types = pokemon.types.map(e => e.type).map(e => e.name);
-  console.log(types)
-  appendPokemon(pokemon, '.chosen-pokemon');
-  await appendStrongAgainst(...types);
-  await appendWeakAgainst(...types);
+  appendPokemon(await getPokemonByName(`${getInput.value.toLowerCase()}`), '.chosen-pokemon');
+  appendStrongAgainst('fire');
 })
 
 const getDamageRelations = async (type) => {
@@ -146,9 +143,9 @@ const getDamageRelations = async (type) => {
     .then((data) => data.damage_relations)
 }
 
-async function appendStrongAgainst(type1, type2) {
-  const pokeType = await calculateWeakness(type1, type2);
-  const resistTo = pokeType.resistTo;
+async function appendStrongAgainst(type) {
+  const pokeType = await getDamageRelations(type);
+  const resistTo = pokeType.half_damage_from;
 
   const getPokeSection = document.querySelector('.advantage');
   getPokeSection.innerHTML = '';
@@ -161,13 +158,14 @@ async function appendStrongAgainst(type1, type2) {
   pokeTypes.className = 'poke-types'; 
 
   resistTo.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element)}`
+    img.classList.add(`${element.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.name)}`
+    img.src = `images/types/${element.name}-text.png`
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeTypes);
@@ -175,9 +173,9 @@ async function appendStrongAgainst(type1, type2) {
   getPokeSection.appendChild(pokeContent);
 }
 
-async function appendWeakAgainst(type1, type2) {
-  const pokeType = await calculateWeakness(type1, type2);
-  const resistTo = pokeType.weaknessTo;
+async function appendWeakAgainst(type) {
+  const pokeType = await getDamageRelations(type);
+  const resistTo = pokeType.double_damage_from;
 
   const getPokeSection = document.querySelector('.disadvantage');
   getPokeSection.innerHTML = '';
@@ -190,13 +188,14 @@ async function appendWeakAgainst(type1, type2) {
   pokeTypes.className = 'poke-types'; 
 
   resistTo.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element)}`
+    img.classList.add(`${element.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.name)}`
+    img.src = `images/types/${element.name}-text.png`;
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeTypes);
