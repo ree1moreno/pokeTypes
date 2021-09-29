@@ -40,6 +40,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+body{
+  background-color: var(--azul-escuro2);
 }
 
 header {
@@ -75,21 +80,30 @@ header img {
   text-align: center;
 }
 
-.types-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 15px;
-  width: 70%;
+#images {
+  width: 960px;
   margin: 0 auto;
 }
 
 .types-images img {
-  height: 100px;
-  width: 100px;
-  padding: 10px;
+  /* height: 80px;
+  width: 170px;
+  padding: 10px; */
   cursor: pointer;
-  /* ao passar o mouse aparecer a descrição do tipo */
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .2s ease;
+  transition: transform .2s ease;
+  opacity: 30%;
+}
+
+.types-images img:hover {
+-webkit-transform: scale(1.7);
+transform: scale(1.7);
+}
+
+.types-images .selected {
+  /* background-color: red; */
+  opacity: 100%;
 }
 
 .choose-text {
@@ -277,8 +291,4 @@ h3 {
 .type.water {
   background-color: var(--water-azul);
   color: white;
-}
-
-.selected {
-  border: 1px solid red;
 }
