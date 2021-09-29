@@ -90,13 +90,19 @@ async function getPokemonByTypes (type1, type2) {
 
 async function getPokemonByName(pokeName) {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}/`)
-    .then((response) => response.json())
+    .then((response) => { 
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Pokemon inválido');
+      }
+    })
     .then((data) => {
       const { name, types, sprites} = data;
       return { name, types, sprites }
     })
+    .catch(error => {alert(error)});
 }
-// console.log((await getPokemonByName('landorus-incarnate')));
 
 function appendPokemon (pokemon, element) {
   const getPokeSection = document.querySelector(element);
