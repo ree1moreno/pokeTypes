@@ -111,13 +111,14 @@ function appendPokemon (pokemon, element) {
   pokeTypes.className = 'poke-types'; 
 
   pokemon.types.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element.type.name}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element.type.name)}`
+    img.classList.add(`${element.type.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.type.name)}`
+    img.src = `images/types/${element.type.name}-text.png`
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeName);
@@ -157,13 +158,14 @@ async function appendStrongAgainst(type) {
   pokeTypes.className = 'poke-types'; 
 
   resistTo.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element.name}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element.name)}`
+    img.classList.add(`${element.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.name)}`
+    img.src = `images/types/${element.name}-text.png`
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeTypes);
@@ -186,13 +188,14 @@ async function appendWeakAgainst(type) {
   pokeTypes.className = 'poke-types'; 
 
   resistTo.forEach((element) => {
-    const span = document.createElement('span');
+    const img = document.createElement('img');
 
-    span.classList.add(`${element.name}`);
-    span.classList.add('type');
-    span.innerHTML = `${toTitleCase(element.name)}`
+    img.classList.add(`${element.name}`);
+    img.classList.add('type');
+    // img.innerHTML = `${toTitleCase(element.name)}`
+    img.src = `images/types/${element.name}-text.png`;
 
-    pokeTypes.appendChild(span);
+    pokeTypes.appendChild(img);
   })
   
   pokeContent.appendChild(pokeTypes);
