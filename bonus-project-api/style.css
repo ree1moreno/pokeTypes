@@ -37,8 +37,9 @@
 }
 
 body {
-  background-color:blanchedalmond;
+  background-color:azure;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -46,9 +47,9 @@ body {
   /* border: 1px solid red; */
 }
 
-body{
+/* body{
   background-color: var(--azul-escuro2);
-}
+} */
 
 header {
   font-family: 'Rampart One', cursive;
@@ -70,11 +71,12 @@ header img {
   margin-left: 30px;
 }
 
-.description {
+/* .description {
   display: flex;
+  height: 100px;
   background-color: var(--ghost-roxo);
   padding: 30px;
-}
+} */
 
 .description p {
   font-family: sans-serif;
@@ -89,16 +91,23 @@ header img {
   margin: 0 auto;
 }
 
+.section-types{
+  margin-left: 24px;
+  display: flex;
+  max-width: 154px;
+}
+
 .types-images img {
-  height: 55px;
-  width: 90px;
-  padding: 10px;
-  cursor: pointer;
+  height: 40px;
+  width: 75px;
+  padding: 0px;
   cursor: pointer;
   -webkit-transition: -webkit-transform .2s ease;
   transition: transform .2s ease;
   opacity: 30%;
 }
+
+
 
 .types-images img:hover {
 -webkit-transform: scale(1.7);
@@ -113,7 +122,7 @@ transform: scale(1.7);
 .choose-text {
   display: flex;
   justify-content: space-evenly;
-  background-color: var(--verde);
+  /* background-color: var(--verde); */
   align-items: center;
 }
 
@@ -127,6 +136,35 @@ transform: scale(1.7);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* #get-by-types {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--azul-claro);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 0px;
+  width: 75%;
+  margin-bottom: 1px;
+} */
+
+button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--azul-claro);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 0px;
+  width: 100%;
+  margin-top: 1px;
+}
+
+#p-choose-pokemon {
+  margin-top: 1px;
+  text-align: justify;
 }
 
 .choose-text button {
@@ -296,3 +334,29 @@ h3 {
   background-color: var(--water-azul);
   color: white;
 }
+
+.box-description {
+  background-color: var(--ghost-roxo);
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+#pokemon-text {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/* .box-type-images {
+  border: 1px solid red;
+  max-width: 25%;
+  display: flex;
+  align-items: stretch;
+  
+} */
+
+/* .box-type-images section {
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+} */
