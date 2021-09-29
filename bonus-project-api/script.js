@@ -55,9 +55,9 @@ function toTitleCase(word) {
 }
 
 const fetchPokemon = (name) => {
-    return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
-    .then((response) => response.json())
-    .then((data) => data.pokemon)
+  return fetch(`https://pokeapi.co/api/v2/type/${name}/`)
+  .then((response) => response.json())
+  .then((data) => data.pokemon)
 }
 
 const getPokemonByType = async (type) => {
@@ -125,7 +125,6 @@ function appendPokemon (pokemon, element) {
   pokeContent.appendChild(pokeTypes);
   
   getPokeSection.appendChild(pokeContent);
-
 }
 
 const getButton = document.querySelector('#find-pokemon');
