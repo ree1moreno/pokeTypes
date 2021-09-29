@@ -46,6 +46,10 @@ header {
   font-family: 'Rampart One', cursive;
 }
 
+header img {
+  height: 100px;
+}
+
 .header-title {
   display: flex;
   justify-content: center;
@@ -59,15 +63,15 @@ header {
 }
 
 .description {
-  background-color: var(--azul-escuro2);
+  background-color: var(--laranja-claro);
   padding: 30px;
 }
 
 .description p {
-  font-family: cursive;
-  font-size: 1.25em;
+  font-family: sans-serif;
+  font-size: 1.5em;
   font-weight: 600;
-  color: var(--amarelo2);
+  color: white;
   text-align: center;
 }
 
@@ -76,11 +80,13 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   padding: 15px;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .types-images img {
-  height: 90px;
-  width: 90px;
+  height: 100px;
+  width: 100px;
   padding: 10px;
   cursor: pointer;
   /* ao passar o mouse aparecer a descrição do tipo */
@@ -89,6 +95,30 @@ header {
 .choose-text {
   display: flex;
   justify-content: space-evenly;
+  background-color: var(--verde);
+  align-items: center;
+}
+
+.choose-text input {
+  font-size: 1em;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.choose-text div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choose-text button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--azul-claro);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 15px;
 }
 
 .chosen-pokemon{
@@ -105,9 +135,27 @@ header {
   padding: 15px;
 }
 
+.fight-info div {
+  display: flex;
+  flex-direction: column;
+}
+
 .advantage , .disadvantage {
+  display: flex;
   text-align: center;
   font-family: cursive;
+  width: 500px;
+  justify-content: center;
+}
+
+.advantage div, .disadvantage div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+h3 {
+  text-align: center;
 }
 
 .footer {
@@ -119,6 +167,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .poke-sprite {
@@ -128,13 +177,16 @@ header {
 
 .poke-types {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  width: 100%;
 }
 
 .type {
   border-radius: 5px;
   padding: 5px 10px;
   font-weight: bold;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .type.bug {
