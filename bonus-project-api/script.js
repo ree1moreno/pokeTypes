@@ -40,10 +40,18 @@ function filterPokemons() {
         })
         
         const pokemons = await getPokemonByTypes(...getID);
-        const pokemon =  pokemons[getRandomNumber(0, pokemons.length)]
-        appendPokemon(await getPokemonByName(pokemon), '.chosen-pokemon');
-        await appendStrongAgainst(getID[0]);
-        await appendWeakAgainst(getID[0]);
+        const randomPokemon =  pokemons[getRandomNumber(0, pokemons.length)]
+        const pokemon = await getPokemonByName(randomPokemon);
+        
+        appendPokemon(pokemon, '.chosen-pokemon');
+        await appendStrongAgainst(...getID);
+        await appendWeakAgainst(...getID);
+
+        const types = pokemon.types.map(e => e.type).map(e => e.name);
+        console.log(types)
+        appendPokemon(pokemon, '.chosen-pokemon');
+        await appendStrongAgainst(...types);
+        await appendWeakAgainst(...types);
     })
 }
 filterPokemons();
@@ -82,13 +90,19 @@ async function getPokemonByTypes (type1, type2) {
 
 async function getPokemonByName(pokeName) {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}/`)
-    .then((response) => response.json())
+    .then((response) => { 
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Pokemon inválido');
+      }
+    })
     .then((data) => {
       const { name, types, sprites} = data;
       return { name, types, sprites }
     })
+    .catch(error => {alert(error)});
 }
-console.log((await getPokemonByName('landorus-incarnate')));
 
 function appendPokemon (pokemon, element) {
   const getPokeSection = document.querySelector(element);
@@ -206,20 +220,23 @@ async function appendWeakAgainst(type) {
 async function calculateWeakness(type1, type2) {
   let weaknessTo = [];
   let resistTo = [];
+  let imuneTo = [];
   
   const getDamageRelationsType1 = await getDamageRelations(type1);
   
-  const { half_damage_from: resist1, double_damage_from: weak1 } = getDamageRelationsType1;
+  const { half_damage_from: resist1, double_damage_from: weak1, no_damage_from: imune1 } = getDamageRelationsType1;
   
   if (!type2) {
     resistTo = resist1.map(i => i.name);
     weaknessTo = weak1.map(i => i.name);
+    imuneTo = imune1.map(i => i.name)
+    resistTo = [ ...resistTo, ...imuneTo];
     return { resistTo, weaknessTo }
   }
 
   // Referentes a qndo tem o type2
   const getDamageRelationsType2 = await getDamageRelations(type2);
-  const { half_damage_from: resist2, double_damage_from: weak2 } = getDamageRelationsType2;
+  const { half_damage_from: resist2, double_damage_from: weak2, no_damage_from: imune2 } = getDamageRelationsType2;
 
   const resistType1 = resist1.filter(resist => {
     return !weak2.find(weak => weak.name === resist.name);
@@ -237,28 +254,37 @@ async function calculateWeakness(type1, type2) {
     return !resist1.find(resist => resist.name === weak.name);
   }).map(i => i.name);
 
+  // Lidando com a imunidade
+  const imm = [...imune1, ...imune2]; // Juntando as imunidades dos dois tipos
+  const immunity = imm.map(e => e.name); // Mapeando para retornar somente o nome do tipo
+
+  // Filtrando as fraquezas, retirando dela as imunidades
+  let arr1 =  [...weakType1 , ...weakType2];
+
+  arr1 = arr1.filter(weak => {
+    return !immunity.find(imune => imune === weak)
+  });
 
   // Retirando duplicatas
-  let arr =  [...resistType1 , ...resistType2];
+
+  // Resistencias
+  let arr =  [...resistType1 , ...resistType2, ...immunity];
   arr = arr.reduce((acc, curr) => {
     if (!resistTo.includes(curr)) {
       resistTo.push(curr);
     }
   }, 0);
 
-  let arr1 =  [...weakType1 , ...weakType2];
+  // Fraquezas
   arr1 = arr1.reduce((acc, curr) => {
     if (!weaknessTo.includes(curr)) {
       weaknessTo.push(curr);
     }
   }, 0);
 
+
   resistTo; // Array contendendo as resistencias
   weaknessTo; // Array contendo as fraquezas
 
   return { resistTo, weaknessTo }
 }
-
-console.log(await calculateWeakness('fire', 'steel'));
-
-// console.log(await getDamageRelations('grass'))
