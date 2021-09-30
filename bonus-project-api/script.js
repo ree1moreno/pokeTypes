@@ -220,23 +220,20 @@ async function appendWeakAgainst(type) {
 async function calculateWeakness(type1, type2) {
   let weaknessTo = [];
   let resistTo = [];
-  let imuneTo = [];
   
   const getDamageRelationsType1 = await getDamageRelations(type1);
   
-  const { half_damage_from: resist1, double_damage_from: weak1, no_damage_from: imune1 } = getDamageRelationsType1;
+  const { half_damage_from: resist1, double_damage_from: weak1 } = getDamageRelationsType1;
   
   if (!type2) {
     resistTo = resist1.map(i => i.name);
     weaknessTo = weak1.map(i => i.name);
-    imuneTo = imune1.map(i => i.name)
-    resistTo = [ ...resistTo, ...imuneTo];
     return { resistTo, weaknessTo }
   }
 
   // Referentes a qndo tem o type2
   const getDamageRelationsType2 = await getDamageRelations(type2);
-  const { half_damage_from: resist2, double_damage_from: weak2, no_damage_from: imune2 } = getDamageRelationsType2;
+  const { half_damage_from: resist2, double_damage_from: weak2 } = getDamageRelationsType2;
 
   const resistType1 = resist1.filter(resist => {
     return !weak2.find(weak => weak.name === resist.name);
@@ -254,37 +251,28 @@ async function calculateWeakness(type1, type2) {
     return !resist1.find(resist => resist.name === weak.name);
   }).map(i => i.name);
 
-  // Lidando com a imunidade
-  const imm = [...imune1, ...imune2]; // Juntando as imunidades dos dois tipos
-  const immunity = imm.map(e => e.name); // Mapeando para retornar somente o nome do tipo
-
-  // Filtrando as fraquezas, retirando dela as imunidades
-  let arr1 =  [...weakType1 , ...weakType2];
-
-  arr1 = arr1.filter(weak => {
-    return !immunity.find(imune => imune === weak)
-  });
 
   // Retirando duplicatas
-
-  // Resistencias
-  let arr =  [...resistType1 , ...resistType2, ...immunity];
+  let arr =  [...resistType1 , ...resistType2];
   arr = arr.reduce((acc, curr) => {
     if (!resistTo.includes(curr)) {
       resistTo.push(curr);
     }
   }, 0);
 
-  // Fraquezas
+  let arr1 =  [...weakType1 , ...weakType2];
   arr1 = arr1.reduce((acc, curr) => {
     if (!weaknessTo.includes(curr)) {
       weaknessTo.push(curr);
     }
   }, 0);
 
-
   resistTo; // Array contendendo as resistencias
   weaknessTo; // Array contendo as fraquezas
 
   return { resistTo, weaknessTo }
 }
+
+console.log(await calculateWeakness('fire', 'steel'));
+
+// console.log(await getDamageRelations('grass'))
