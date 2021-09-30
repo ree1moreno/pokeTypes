@@ -44,8 +44,8 @@
 }
 
 /* body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg, rgba(238, 118, 82, 0.507), rgba(231, 60, 126, 0.5), rgba(35, 165, 213, 0.507), rgba(35, 213, 171, 0.507));
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   height: 100%;
 }
@@ -62,9 +62,12 @@
   }
 } */
 
+
+
 main {
   margin: 0 auto;
   max-width: 70%;
+  border-radius: 10px;
 }
 
 header {
@@ -234,10 +237,10 @@ transform: scale(1.7);
 }
 
 .chosen-pokemon .poke-sprite {
-  width: 550px;
-  height: 500px;
-  max-width: 650px;
-  max-height: 600px;
+  min-width: 550px;
+  min-height: 500px;
+  max-width: 550px;
+  max-height: 500px;
   margin: 30px auto;
 }
 
@@ -273,6 +276,11 @@ transform: scale(1.7);
   margin-right: auto;
 }
 
+.fight-info .resistant .poke-types img:nth-child(1) {
+  /* background-color: red; */
+  margin-right: 0;
+}
+
 .fight-info .weak {
   display: flex;
   flex-direction: column;
@@ -292,6 +300,11 @@ transform: scale(1.7);
 .fight-info .weak .poke-types img:nth-child(odd) {
   /* background-color: red; */
   margin-right: auto;
+}
+
+.fight-info .weak .poke-types img:nth-child(1) {
+  /* background-color: red; */
+  margin-right: 0;
 }
 
 .fight-info h3 {
