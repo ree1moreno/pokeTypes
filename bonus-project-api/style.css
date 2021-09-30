@@ -43,27 +43,6 @@
   /* border: 1px solid red; */
 }
 
-/* body {
-  background: linear-gradient(-45deg, rgba(238, 118, 82, 0.507), rgba(231, 60, 126, 0.5), rgba(35, 165, 213, 0.507), rgba(35, 213, 171, 0.507));
-  background-size: 200% 200%;
-  animation: gradient 15s ease infinite;
-  height: 100%;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
-
-
 main {
   margin: 0 auto;
   max-width: 70%;
@@ -112,6 +91,8 @@ header img {
   padding: 10px;
   border: 1px double rgba(0, 0, 0, 0.137);
   border-radius: 7px;
+  background-color: rgba(158, 157, 157, 0.253);
+
 }
 
 .types-images img {
@@ -220,6 +201,8 @@ transform: scale(1.7);
   font-family: cursive;
   border: 1px double rgba(0, 0, 0, 0.137);
   border-radius: 7px;
+  background-color: rgba(158, 157, 157, 0.192);
+
 }
 
 .chosen-pokemon h2 {
@@ -254,8 +237,9 @@ transform: scale(1.7);
   padding: 20px;
   display: flex;
   margin-top: 15px;
-  /* border: 1px double rgba(0, 0, 0, 0.137);
-  border-radius: 7px; */
+  border: 1px double rgba(0, 0, 0, 0.137);
+  border-radius: 7px;
+  background-color: rgba(158, 157, 157, 0.192);
 }
 
 .fight-info .resistant {
