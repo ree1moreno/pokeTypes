@@ -116,8 +116,8 @@ function appendPokemon (pokemon, element) {
   pokeImage.src = `${(pokemon.sprites.other.dream_world.front_default) ? 
     pokemon.sprites.other.dream_world.front_default : 
     pokemon.sprites.other['official-artwork'].front_default}`;
-  pokeImage.className = 'poke-sprite';
-
+  pokeImage.className = 'poke-sprite';    
+  
   pokeName.innerText = `Você escolheu o ${toTitleCase(pokemon.name)}! `;
   pokeName.className = 'poke-name';
 

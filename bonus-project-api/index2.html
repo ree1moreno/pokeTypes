@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <title>PokeTypes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style2.css">
+  
+</head>
+
+<body>
+  <header class="header">
+    <section class="header-title">
+      <img src="images/pokedex_art.png" height="150px" alt="pokedex">
+      <h1>PokeTypes</h1>
+    </section>
+  </header>
+
+  <main class="main">
+    <section class="description">
+      <p>Descubra qual os pontos fortes e fracos pelo tipo do pokémon escolhido</p>
+    </section>
+
+    <section id="images">
+      <section class="types-images">
+        <!-- https://www.poke-blast-news.net/2015/10/tipos-de-pokemon.html -->
+        <img src="images/types/bug-text.png" alt="" id="bug" class="symbol symbol-bug">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/dark-text.png" alt="" id="dark" class="symbol symbol-dark">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/dragon-text.png" alt="" id="dragon" class="symbol symbol-dragon">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/electric-text.png" alt="" id="electric" class="symbol symbol-electric">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/fairy-text.png" alt="" id="fairy" class="symbol symbol-fairy">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/fighting-text.png" alt="" id="fighting" class="symbol symbol-fighting">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/fire-text.png" alt="" id="fire" class="symbol symbol-fire">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/flying-text.png" alt="" id="flying" class="symbol symbol-flying">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/ghost-text.png" alt="" id="ghost" class="symbol symbol-ghost">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/grass-text.png" alt="" id="grass" class="symbol symbol-grass">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/ground-text.png" alt="" id="ground" class="symbol symbol-ground">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/ice-text.png" alt="" id="ice" class="symbol symbol-ice">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/normal-text.png" alt="" id="normal" class="symbol symbol-normal">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/poison-text.png" alt="" id="poison" class="symbol symbol-poison">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/psychic-text.png" alt="" id="psychic" class="symbol symbol-psychic">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/rock-text.png" alt="" id="rock" class="symbol symbol-rock">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/steel-text.png" alt="" id="steel" class="symbol symbol-steel">
+        <!-- <p>Descrição Tipo</p> -->
+        <img src="images/types/water-text.png" alt="" id="water" class="symbol symbol-water">
+        <!-- <p>Descrição Tipo</p> -->
+      </section>
+    </section>
+
+    <section class="description choose-text">
+      <div>
+        <p>Selecione até dois tipos acima</p>
+        <a href="#your-pokemon"><button id="get-by-types" class="effect effect-1">Procurar<img src="images/pokeball.png" alt="" id="pokeball"></button></a>
+      </div>
+      <div>
+        <p>Ou escolha o seu pokémon:</p>
+        <input type="text" id="pokemon-text" placeholder="Nome do pokémon">
+        <a href="#your-pokemon"><button id="find-pokemon" class="effect effect-1">Procurar<img src="images/pokeball.png"  alt="" id="pokeball"></button></a>
+      </div>
+    </section>
+
+    <section id="your-pokemon" class="chosen-pokemon">
+    </section>
+
+    <section class="fight-info">
+      <div class="resistant">
+        <h3>Resistente contra: </h3>
+        <section class="advantage">
+        </section>
+      </div>
+      <div class="weak">
+        <h3>Fraco contra:</h3>
+        <section class="disadvantage">
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Desenvolvido por <a href="" target="_blank">Alexandre Pimentel</a> - <a href="https://www.linkedin.com/in/reemoreno/" target="_blank">Renato Moreno</a> - <a href="" target="_blank">William Schmidt</a></p>
+  </footer>
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>
