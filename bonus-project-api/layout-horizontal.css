@@ -1,0 +1,316 @@
+:root {
+  --branco: rgb(255, 255, 255);
+  --amarelo: rgb(230, 188, 47);
+  --amarelo2: rgb(255, 204, 0);
+  --amarelo3: rgb(213, 161, 0);
+  --vermelho: rgb(255, 31, 31);
+  --azul-claro: rgb(93, 185, 255);
+  --azul-claro2: rgb(0, 117, 190);
+  --azul-escuro: rgb(54, 59, 129);
+  --azul-escuro2: rgb(10, 40, 95);
+  --cinza-claro: rgb(164, 164, 164);
+  --cinza-escuro: rgb(49, 49, 49);
+  --laranja-escuro: rgb(227, 53, 13);
+  --laranja-claro: rgb(238, 107, 47);
+  --verde: rgb(77, 173, 91);
+  --azul: rgb(48, 167, 215);
+
+  /* Cores dos tipos: */
+  --bug-verde: rgb(114, 159, 63);
+  --dark-cinza: rgb(112, 112, 112);
+  --dragon-laranja: rgb(241, 110, 87);
+  --electric-amarelo: rgb(238, 213, 53);
+  --fairy-rosa: rgb(253, 185, 233);
+  --fighting-laranja: rgb(213, 103, 35);
+  --fire-laranja-escuro: rgb(253, 125, 36);
+  --flying-azul: rgb(61, 199, 239);
+  --ghost-roxo: rgb(123, 98, 163);
+  --grass-verde: rgb(155, 204, 80);
+  --ground-amarelo: rgb(247, 222, 63);
+  --ice-azul: rgb(81, 196, 231);
+  --normal-cinza: rgb(164, 172, 175);
+  --poison-roxo: rgb(185, 127, 201);
+  --psychic-rosa: rgb(243, 102, 185);
+  --rock-ocre: rgb(163, 140, 33);
+  --steel-prata: rgb(158, 183, 184);
+  --water-azul: rgb(69, 146, 196);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-image: url(images/Pokemon_Type_Icons.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 0 auto;
+  width: 75%;
+  border: 1px double rgba(0, 0, 0, 0.137);
+  border-radius: 7px;
+  background-color: rgba(158, 157, 157, 0.253);
+}
+
+.main .left-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.main .center-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.main .right-container {
+  width: 20%;
+  display: flex;
+  border: 1px solid red;
+}
+
+header {
+  font-family: 'Rampart One', cursive;
+}
+
+header img {
+  height: 150px;
+}
+
+.header-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header-title h1 {
+  font-size: 5em;
+  margin-left: 30px;
+}
+
+.description {
+  background-color: var(--laranja-claro);
+  padding: 20px 10px;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+.description p {
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--branco);
+  text-align: center;
+}
+
+.types-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px double rgba(0, 0, 0, 0.137);
+  border-radius: 7px;
+}
+
+.types-images img {
+  height: 60px;
+  width: 115px;
+  cursor: pointer;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  opacity: 30%;
+}
+
+.types-images img:hover {
+  -webkit-transform: scale(1.7);
+  transform: scale(1.7);
+}
+
+.types-images .selected {
+  opacity: 100%;
+}
+
+.choose-text {
+  display: flex;
+  background-color: var(--azul-escuro);
+}
+
+.choose-text .pick-types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choose-text .pick-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choose-text #pokeball {
+  vertical-align: text-bottom;
+  width: 20px;
+  margin-bottom: 1px;
+  margin-left: 10px;
+}
+
+.choose-text input {
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin: 10px 0;
+  height: 30px;
+  width: 161px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.effect {
+  border: none;
+  color: var(--branco);
+  width: 161px;
+  padding: 5px 8px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 6px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+
+.effect-1 {
+  background-color: var(--cinza-escuro);
+}
+
+.effect-1:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.103);
+  border-radius: 6px;
+  transition: all 0.5s ease;
+}
+
+.effect-1:hover::before {
+  width: 100%;
+}
+
+.chosen-pokemon {
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+}
+
+.chosen-pokemon h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--cinza-escuro);
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+
+.chosen-pokemon .poke-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.chosen-pokemon .poke-section img {
+  width: 460px;
+  height: 440px;
+  margin-bottom: 30px;
+}
+
+.chosen-pokemon .poke-types {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.chosen-pokemon .poke-types img {
+  width: 130px;
+  height: 54px;
+  margin: 0;
+}
+
+.fight-info {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.fight-info h3 {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--dragon-laranja);
+  text-align: center;
+  margin: 0 auto 10px;
+  width: 222px;
+  border: 1px double rgba(0, 0, 0, 0.137);
+  border-radius: 7px;
+}
+
+.advantage .poke-section .poke-types,
+.disadvantage .poke-section .poke-types {
+  display: flex;
+  flex-wrap: wrap;
+  width: 224px;
+  margin: 0 auto;
+  border: 1px double rgba(0, 0, 0, 0.137);
+  border-radius: 7px;
+}
+
+.advantage .poke-section .poke-types:nth-child(odd),
+.disadvantage .poke-section .poke-types:nth-child(odd) {
+  margin-right: auto;
+}
+
+.type {
+  border-radius: 8px;
+  width: 110px;
+}
+
+.footer {
+  font-family: cursive;
+  font-size: 1em;
+  text-align: center;
+  padding: 35px 0 15px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--cinza-escuro);
+  cursor: pointer;
+}
+
+.footer a:visited {
+  text-decoration: none;
+  color: var(--cinza-escuro);
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: var(--fire-laranja-escuro);
+}
+
+.footer a:active {
+  text-decoration: none;
+  color: var(--cinza-escuro);
+}
